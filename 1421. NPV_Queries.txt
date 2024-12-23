@@ -1,0 +1,8 @@
+# Write your MySQL query statement below
+
+SELECT q.id, q.year, CASE WHEN NPV.npv IS NOT NULL THEN NPV.npv
+ELSE 0 END AS npv
+FROM Queries q
+LEFT JOIN NPV
+ON q.id = NPV.id
+AND q.year = NPV.year
